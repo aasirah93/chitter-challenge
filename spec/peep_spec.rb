@@ -1,13 +1,17 @@
 require 'peep'
 
-describe Peep do
   describe '.all' do
-    it 'returns all peeps' do
-      peeps = Peep.all
+    it 'returns a list of peeps' do
+      connection = PG.connect(dbname: 'chitter_test')
       
-      expect(peeps).to have_content "The Election is coming up"
-      expect(peeps).to have_content "Covid is still a thing"
+      connection.exec("INSERT INTO peeps (url) VALUES ('The Election is coming up');")
+      connection.exec("INSERT INTO peeps (url) VALUES('Covid is still a thing');")
+
+
+      peeps = Peep.all
+
+      expect(peeps).to include('The Election is coming up')
+      expect(peeps).to include('Covid is still a thing')
   
   end
   end
-end

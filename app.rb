@@ -4,6 +4,8 @@ require './lib/peep'
 class Chitter < Sinatra::Base
 
   get '/peeps' do
+  p ENV
+  
   @peeps = Peep.all
   erb :'peeps/index'
 end
