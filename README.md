@@ -57,6 +57,13 @@ Technical Approach:
 
 In this unit, you integrated a database into Bookmark Manager using the `PG` gem and `SQL` queries. You can continue to use this approach when building Chitter Challenge.
 
+Instructions for setting up the database:
+
+Connect to psql
+Create the database using the psql command CREATE DATABASE chitter;
+Connect to the database using the pqsl command \c chitter;
+Run the query we have saved in the file 01_create_peeps_table.sql
+
 If you'd like more technical challenge now, try using an [Object Relational Mapper](https://en.wikipedia.org/wiki/Object-relational_mapping) as the database interface.
 
 Some useful resources:
