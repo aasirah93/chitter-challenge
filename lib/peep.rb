@@ -12,5 +12,15 @@ class Peep
     result.map { |peep| peep['url'] }
 
   end
+
+   def self.create(url:)
+    if ENV['RACK_ENV'] == 'test'
+        connection = PG.connect(dbname: 'chitter_test')
+      else
+        connection = PG.connect(dbname: 'chitter')
+      end
+
+      connection.exec("INSERT INTO peeps (url) VALUES('#{url}')")
+  end 
   end
 

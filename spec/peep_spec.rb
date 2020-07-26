@@ -14,4 +14,12 @@ require 'peep'
       expect(peeps).to include('Covid is still a thing')
   
   end
+
+   describe '.create' do
+    it 'creates a new peep' do
+      Peep.create(url: 'things will improve')
+
+      expect(Peep.all).to include 'things will improve'
   end
+end
+end

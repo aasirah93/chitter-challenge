@@ -1,10 +1,8 @@
 feature 'Viewing peeps' do
     scenario 'a user can see peeps' do
-      connection = PG.connect(dbname: 'chitter_test')
       
-
-      connection.exec("INSERT INTO peeps VALUES(1, 'The Election is coming up');")
-      connection.exec("INSERT INTO peeps VALUES(2, 'Covid is still a thing');")
+      Peep.create(url: "The Election is coming up")
+      Peep.create(url: "Covid is still a thing")
 
       visit('/peeps')
 
